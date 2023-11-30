@@ -60,5 +60,55 @@ void tokenizing(void)
 
     // We tell the user that this part of the program is ending
     printf("*** End of Tokenizing Words Demo ***\n\n");
+     
+    //V2
+    // This line tells the user that we're starting a demo about splitting phrases
+    printf("*** Start of Tokenizing Phrases Demo ***\n");
+
+    // We're making a space to store the phrases the user will type
+    char    phrases[BUFFER_SIZE];
+
+    // This is for keeping track of the next phrase we find
+    char*   nextPhrase = NULL;
+
+    int     phrasesCounter;
+
+    // We start a loop that keeps asking the user to type stuff
+    do {
+    // We ask the user to type some phrases, separated by commas, and 'q' to quit
+        printf("Type a few phrases separated by comma (q - to quit):\n");
+
+    // We store what they type in 'phrases'
+        fgets(phrases, BUFFER_SIZE, stdin);
+
+    // We remove the last character (newline) from what was typed
+        phrases[strlen(phrases) - 1] = '\0';
+
+    // We check if the user didn't type 'q' to quit
+        if (strcmp(phrases, "q") != 0) {
+        // We find the first phrase
+            nextPhrase = strtok(phrases, ",");
+
+        // We start counting phrases from 1
+            phrasesCounter = 1;
+
+        // We keep finding and printing phrases until there are no more
+            while (nextPhrase) {
+            // We print each phrase and its number
+                printf("Phrase #%d is \'%s\'\n", phrasesCounter++, nextPhrase);
+
+            // We find the next phrase
+                nextPhrase = strtok(NULL, ",");
+            }
+        }
+
+    // We keep doing this until the user types 'q'
+    } while (strcmp(phrases, "q") != 0);
+    // We tell the user that the demo about splitting phrases is over
+    printf("*** End of Tokenizing Phrases Demo ***\n\n");
+
+// V3
+
+
 
 }
