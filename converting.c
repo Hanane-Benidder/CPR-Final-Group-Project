@@ -50,15 +50,15 @@ void converting(void)
    
    // V2
    // This line tells the user about converting text to double (a type of number)
-   printf("*** Start of Converting Strings to double Demo ***\n");
+    printf("*** Start of Converting Strings to double Demo ***\n");
 
    // We're making a space to store the text the user will type
-   char   doubleString[BUFFER_SIZE];
+    char   doubleString[BUFFER_SIZE];
 
    // This is where we'll store the number after we change it from text
-   double doubleNumber;
+    double doubleNumber;
 
-   do {
+    do {
     // We ask the user to type a number in text form, and they can type 'q' to stop
         printf("Type the double numeric string (q - to quit):\n");
 
@@ -76,23 +76,13 @@ void converting(void)
         // We show the user the number we got from the text
            printf("Converted number is %f\n", doubleNumber);
         }
-   } while (strcmp(doubleString, "q") != 0);  // We keep doing this until the user types 'q'
+    } while (strcmp(doubleString, "q") != 0);  // We keep doing this until the user types 'q'
 
 
     printf("*** End of Converting Strings to double Demo ***\n\n");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+    // V3
 
 }
