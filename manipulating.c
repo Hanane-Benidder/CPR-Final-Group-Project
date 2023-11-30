@@ -55,5 +55,52 @@ void manipulating(void)
     // We tell the user that this part of the program is ending
     printf("*** End of Concatenating Strings Demo ***\n\n");
 
-    // Here we can add more versions (Version 2, Version 3, etc.) of the function later
+    //V2
+    // We start by telling the user that this is a demo for comparing strings
+    printf("*** Start of Comparing Strings Demo ***\n"); 
+
+    // We're creating two places to store the texts (strings) the user will type
+    char compare1[BUFFER_SIZE];
+    char compare2[BUFFER_SIZE];
+
+    // This will help us see how the strings are different
+    int result;
+
+    // We start a loop that will keep asking the user to type things
+    do {
+    // We ask the user to type the first string and 'q' to quit
+        printf("Type the 1st string to compare (q - to quit) :\n");
+
+    // We save what they type in compare1
+        fgets(compare1, BUFFER_SIZE, stdin);
+
+    // We remove the last character (newline) from the string
+        compare1[strlen(compare1) - 1] = '\0';
+
+    // If the user didn't type 'q', we ask for another string
+        if (strcmp(compare1, "q") != 0) {
+            printf("Type the 2nd string to compare:\n");
+            fgets(compare2, BUFFER_SIZE, stdin);
+            compare2[strlen(compare2) - 1] = '\0';
+
+        // We compare both strings and store the result
+            result = strcmp(compare1, compare2);
+
+        // Depending on the result, we tell the user which string is 'bigger', 'smaller', or if they are 'equal'
+            if (result < 0)
+                printf("\'%s\' string is less than \'%s\'\n", compare1, compare2);
+            else if (result == 0)
+                printf("\'%s\' string is equal to \'%s\'\n", compare1, compare2);
+            else
+                 printf("\'%s\' string is greater than \'%s\'\n", compare1, compare2);
+        }
+    } while (strcmp(compare1, "q") != 0);  // We keep doing this until the user types 'q'
+
+    // We tell the user that the comparing strings demo is over
+    printf("*** End of Comparing Strings Demo ****\n\n");
+
+
+
+
+
 }
