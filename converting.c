@@ -84,5 +84,40 @@ void converting(void)
 
 
     // V3
+    // Print a message saying the program is starting.
+    printf("*** Start of Converting Strings to long Demo ***\n");
+
+    // Create a variable to store the string we will convert.
+    char longString[BUFFER_SIZE];
+
+    long longNumber;
+
+    // Start a loop that will keep asking for input until we type 'q'.
+    do {
+        // Ask the user to type a number as a string.
+        printf("Type the long numeric string (q to quit):\n");
+
+        // Read the input from the user and save it in longString.
+        fgets(longString, BUFFER_SIZE, stdin);
+
+        // Remove the newline character at the end of the input.
+        longString[strlen(longString) - 1] = '\0';
+
+        // Check if the input is not 'q'.
+        if ((strcmp(longString, "q") != 0)) {
+            // Convert the string to a long number.
+            longNumber = atol(longString);
+
+            // Print the converted number.
+            printf("Converted number is %ld\n", longNumber);
+        }
+        // Keep doing this until 'q' is entered.
+    } while (strcmp(longString, "q") != 0);
+
+    // Print a message saying the program is ending.
+    printf("*** End of Converting Strings to long Demo ***\n\n");
+
+
+
 
 }
