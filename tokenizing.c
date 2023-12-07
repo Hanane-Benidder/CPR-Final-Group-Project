@@ -109,6 +109,51 @@ void tokenizing(void)
 
 // V3
 
+    // Print a message saying the tokenizing sentences demo is starting.
+    printf("*** Start of Tokenizing Sentences Demo ***\n");
+
+    // Create a string variable to store the sentences entered by the user.
+    char    sentences[BUFFER_SIZE];
+
+    // Create a pointer to keep track of the next sentence.
+    char*   nextSentence = NULL;
+
+    // Create an integer to count the sentences.
+    int     sentencesCounter;
+
+    // Start a loop that will keep running until we type 'q'.
+    do {
+        // Ask the user to type some sentences separated by dots, or 'q' to quit.
+        printf("Type a few sentences separated by dot(q - to quit):\n");
+
+        // Read the input from the user and save it in the sentences variable.
+        fgets(sentences, BUFFER_SIZE, stdin);
+
+        // Remove the newline character at the end of the input.
+        sentences[strlen(sentences) - 1] = '\0';
+
+        // Check if the input is not 'q'.
+        if ((strcmp(sentences, "q") != 0)) {
+            // Start breaking the sentences into smaller parts (tokens) separated by dots.
+            nextSentence = strtok(sentences, ".");
+
+            // Initialize the sentence counter to 1.
+            sentencesCounter = 1;
+
+            // Loop through each tokenized sentence.
+            while (nextSentence) {
+                // Print each sentence with its number.
+                printf("Sentence #%d is \'%s\'\n", sentencesCounter++, nextSentence);
+
+                // Get the next sentence, if any.
+                nextSentence = strtok(NULL, ".");
+            }
+        }
+        // Keep doing this until 'q' is entered.
+    } while (strcmp(sentences, "q") != 0);
+
+    // Print a message saying the tokenizing sentences demo is ending.
+    printf("*** End of Tokenizing Sentences Demo ***\n\n");
 
 
 }
