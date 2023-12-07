@@ -96,5 +96,52 @@ void fundamentals(void)
     // We tell the user that the demo about measuring string lengths is over
     printf("*** End of Measuring Strings Demo ***\n\n");
 
+
+
+
+
+
     //V3
+    // Print a message saying the program for copying strings is starting.
+    printf("*** Start of Copying Strings Demo ***\n");
+
+    // Create two string variables: one for the destination and one for the source.
+    char destination[BUFFER_SIZE];
+    char source[BUFFER_SIZE];
+
+    // Start a loop that will keep running until we type 'q'.
+    do {
+        // Set the first character of the destination string to null, making it empty.
+        destination[0] = '\0';
+
+        // Print a message that the destination string is now empty.
+        printf("Destination string is reset to empty\n");
+
+        // Ask the user to type the source string.
+        printf("Type the source string (q - to quit):\n");
+
+        // Read the input from the user and save it in the source string.
+        fgets(source, BUFFER_SIZE, stdin);
+
+        source[strlen(source) - 1] = '\0';
+
+        // Check if the source string is not 'q'.
+        if (strcmp(source, "q") != 0) {
+            // Copy the source string to the destination string.
+            strcpy(destination, source);
+
+            // Print the new destination string.
+            printf("New destination string is \'%s\'\n", destination);
+        }
+        // Keep doing this until 'q' is entered.
+    } while (strcmp(source, "q") != 0);
+
+    // Print a message saying the program for copying strings is ending.
+    printf("*** End of Copying Strings Demo ***\n\n");
+
+
+
+
+
+
 }
